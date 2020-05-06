@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        {%for listing in listings%}
+        {% if user.id == listing.user.id %}
+        <h3>{{listing.user}}</h3>
+        <h4>{{listing.name}}</h4>
+        <h4>{{listing.address}}</h4>
+        <h4>{{listing.city}}</h4>
+        {% endif %}
+        {%endfor%}
+    {% else %}
+    <h1>Go login!</h1>
+    {% endif %}
+</body>
+</html>
